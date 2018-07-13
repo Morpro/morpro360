@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assign Roles</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/assignRoleApiTest.js"></script>
+</head>
+<body>
+
+    <form id="create-load-form">
+        <label for="loadName">Load Name</label>
+        <input type="text" id="loadName">
+        <br>
+        <label for="loadCompany">company</label>
+        <input type="text" id="loadCompany">
+        <br>
+        <label for="loadNumber">Load number</label>
+        <input type="text" id="loadNumber">
+        <br>
+        <label for="loadPickUp">Pick Up</label>
+        <input type="text" id="loadPickUp">
+        <br>
+        <label for="loadDropOff">Drop Off</label>
+        <input type="text" id="loadDropOff">
+        <br>
+        <label for="loadWeight">Weight</label>
+        <input type="text" id="loadWeight">
+        <br>
+        <label for="loadRate">Rate</label>
+        <input type="text" id="loadRate">
+        <input type="submit" id="ceate-load-submit">
+    </form>
+
+    <form id="assign-load-form">
+        <h4>Assign  Load</h4>
+        
+
+        <label for="load-select">Assign load </label> <select id="load-select"></select>
+        <h5> to:</h5><select id="user-select"></select>
+        
+
+
+
+        <input type="submit" id="assign-load-submit">
+    </form>
+    <br>
+    <form id="unassign-role-form">
+        <h4>Unassign Load</h4>
+        <select id="user-unassign-select">
+            
+        </select>
+        <select id="load-unassign-select">
+            
+        </select>
+        <input type="submit" id="unassign-load-submit">
+    </form>
+</body>
+</html>
