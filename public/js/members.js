@@ -64,9 +64,10 @@ $(document).ready(function() {
                 +"<div class='col-sm-3' style='margin-top:24px;'>"
                 +"<div class=''>"
 
-                     +"<div class='row'>" +  "<h4 class='fa fa-info-circle fa-2x' aria-hidden='true' style='font-size: 20px;'> Origin </h4>"+ "</div>"
-                     +"<div class='row'>" + load.DropOffAdress +"</div>"
-                     +"<div class='row'>"+ load.PickUpCity + ", "+ load.PickUpState + " " + load.PickUpZip +  "</div>"
+                     +"<div class='row'>" +  "<h4 class='fa fa-info-circle fa-2x' aria-hidden='true' style='font-size: 20px;'> Info </h4>"+ "</div>"
+                     +"<div class='row'>" +"Product: "+ load.product +"</div>"
+                     +"<div class='row'>"+"Weight: "+ load.Weight +"</div>"
+                     +"<div class='row'>"+"Rate: "+ load.Rate +"</div>"
 
                 +"</div>"
                 +"</div>"

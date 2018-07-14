@@ -31,16 +31,26 @@ totalincome ();
 				.then(loads=>{
 						console.log(loads);
 						var total = [];
+						var allLoads =[];
+
+
+
 						loads.forEach(load=>{
+							 allLoads.push(load)
+							  console.log("test", allLoads);
+
 								total.push(load.Rate)
 								console.log("totalcon", total)
 								})
 					 var sum = total.reduce((x, y) => x + y);
 					 var savings = (sum *  0.30)
+					 var Totalincome = (sum  + 1700)
+
 					 console.log("here is the sum:",sum);
 					 $("#gross").text("$"+sum.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,"))
 					  $("#grosssales").text("$"+sum.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,"))
-					 $("#savings").text("$"+savings.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") );
+						$("#income").text("$"+Totalincome.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,"))
+					 $("#savings").text("$"+savings.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
 
 
            console.log("savinf",savings)
@@ -104,6 +114,9 @@ totalincome ();
 
 
         })
+
+				
+
         // get all loads for that user
 
         $.get("api/loads/status/false")

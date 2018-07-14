@@ -76,7 +76,7 @@ $(document).ready(function(){
 
 
 
-        // GOT TO BE ABLE TO ASSIGN   
+        // GOT TO BE ABLE TO ASSIGN
         $("tbody").empty();
         $("#total").text(0);
         $.get("/api/currentuserid")
