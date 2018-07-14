@@ -3,7 +3,11 @@ $(document).ready(function(){
     .then(id=>{
         $.get("/api/users/"+id)
         .then(user=>{
-            $("#member-name").text(user.firstName + " " + user.lastName);
+
+            $(".name").text(user.firstName + " " + user.lastName);
+            $("#username").text(user.firstName + " " + user.lastName);
+            $("#email").text(user.email);
+
         });
 
         $.get("/api/users/"+id+"/roles")
@@ -107,11 +111,11 @@ $(document).ready(function(){
 
         $("#create-user").trigger("reset");
 
-        $.post("/api/users", newUser).done(data=>{    
+        $.post("/api/users", newUser).done(data=>{
             populateUsers();
         });
     });
-    
+
     $("#userToChange").on("change", event=>{
         $.get("/api/users/"+$("#userToChange").val())
         .then(user=>{
@@ -304,7 +308,7 @@ $(document).ready(function(){
         if(!$("#new-task-name").val() || !$("#new-task-commission").val()) return;
 
         $.post("/api/tasks", {
-            name:$("#new-task-name").val(), 
+            name:$("#new-task-name").val(),
             pickUpNum:$("#new-task-PickUpNum").val(),
             pickUp:$("#new-task-PickUp").val(),
             dropOff:$("#new-task-DropOff").val(),

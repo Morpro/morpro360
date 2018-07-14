@@ -23,18 +23,6 @@ $(document).ready(function(){
             if(!!callback) callback();
         });
     };
-    function userinfo(callback) {
-      $.get("/api/currentuserid")
-      .then(id=>{
-        $.get("/api/users/"+id)
-               .then(user=>{
-                   $("#loadPickUp").appendTo(user.firstName + " " + user.lastName);
-                   console.log("goood",user.firstName)
-                   // $("#loadPickUp").text(user.firstName + " " + user.lastName);
-               });
-            if(!!callback) callback();
-        });
-    };
 
     function loadUnassignloadOptions(callback) {
         $.get("/api/users/" + $("#user-unassign-select").val() + "/loads/", loads=>{
@@ -54,11 +42,8 @@ $(document).ready(function(){
 
     }
 
-
-
     loadUserOptions(loadUnassignloadOptions);
     loadloadOptions();
-    userinfo();
 
 
 
@@ -67,10 +52,7 @@ $(document).ready(function(){
 
         $.get("/api/users/"+id+"/roles")
         .then(roles=>{
-            // console.log("Is admin:");
-            // console.log(roles.find(role=>(role.name === "Admin")));
-            // console.log("Is payroll:");
-            // console.log(roles.find(role=>(role.name === "Payroll")));
+
             if(!roles.find(role=>(role.name === "Admin"))) {
                 console.log("user is not an admin");
                 $("#admin-link").remove();
@@ -90,36 +72,65 @@ $(document).ready(function(){
         .then(user=>{
             $("#username").text(user.firstName + " " + user.lastName);
             console.log(user.firstName)
-            // $("#loadPickUp").text(user.firstName + " " + user.lastName);
         });
 
-     //Create new Load Puts into Database
-    $("#create-load-form").submit(event=>{
+
+
+        // GOT TO BE ABLE TO ASSIGN
+        $("tbody").empty();
+        $("#total").text(0);
+        $.get("/api/currentuserid")
+            .then(id=>{
+            console.log(id)
+                $.get("/api/expense")
+                 .then(expenses=>{
+                    console.log(expenses)
+                    expenses.forEach(expense =>{
+                        var $entryRow = $("<tr>");
+                        $entryRow.append($("<td>").text(expense.expense))
+                            .append($("<td>").text(expense.expenseType))
+                            .append($("<td>").text(expense.expenseAmount))
+                            // .append($("<td>").text(expense.reciept))
+
+                             $entryRow.appendTo("tbody");
+                    });
+
+                // $.get("/api/users/"+ id + "/loads")
+                // .then(loads=>{
+                //     console.log(loads);
+                //     var total = [];
+                //     loads.forEach(load=>{
+                //         total.push(load.Rate)
+                //         console.log("totalcon", total)
+                //         })
+                //    var sum = total.reduce((x, y) => x + y);
+                //    console.log("here is the sum:",sum);
+                //    $("#total").text(sum)
+                //
+                //
+                //     })
+                 })
+
+
+
+
+            });
+
+
+
+     //Create new customer Puts into Database
+    $("#create-expense-form").submit(event=>{
         event.preventDefault();
-        $.post("/api/loads", {
-             name : ($("#loadName").val()),
-             Company : $("#loadCompany").val(),
-             LoadNumber : parseInt($("#loadNumber").val()),
-             PickUp : $("#loadPickUp").val(),
-             Dropoff :$("#loadDropOff").val(),
-             Phone :$("#Phone").val().replace(/(\d{3})\-?(\d{3})\-?(\d{4})/,'$1-$2-$3'),
-             Weight : parseInt($("#loadWeight").val()),
-             Rate : parseInt($("#loadRate").val()),
-             PickUpNumber:($("#PickUpNumber").val()),
-             product:$("#product").val(),
-             PickUpAdress:$("#PickUpAdress").val(),
-             PickUpCity:$("#PickUpCity").val(),
-             PickUpZip:$("#PickUpZip").val(),
-             PickUpState:$("#PickUpState").val(),
-             DropOffAdress:$("#DropOffAdress").val(),
-             DropOffCity:$("#DropOffCity").val(),
-             DropOffZip:$("#DropOffZip").val(),
-             DropOffState:$("#DropOffState").val()
-
-
+        $.post("/api/expense", {
+             expense :$("#Expenses").val(),
+             expenseType :$("#expenseType").val(),
+             expenseAmount : $("#expenseAmount").val(),
+             reciept : $("#reciept").val(),
         }).then(successPost)
+        console.log("created new customer")
     });
 ///need to assign task
+
 
 
 $("#assign-load-form").submit(event=>{

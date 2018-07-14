@@ -27,7 +27,7 @@ $(document).ready(function() {
 
     function loadStatusOptions(callback) {
         $.get("/api/loads", loads=>{
-            $("#load-select").empty();
+            $("#load-select");
             loads.forEach(load=>{
                 $("<option value='" + load.id + "'>" + load.name + "</option>")
                     .appendTo($("#load-select"));
@@ -53,6 +53,15 @@ $(document).ready(function() {
       $("#alert").fadeOut(4500);
 
     };
+
+    function failPost (callback) {
+      $("#alertdanger .msg").text();
+      $("#alert").fadeIn(500);
+      $("#alert").fadeOut(4500);
+
+    };
+
+
 
     loadStatusOptions();
     loadloadOptions();
@@ -118,10 +127,10 @@ $(document).ready(function() {
                     .append($("<td>").text(load.Dropoff))
                     .append($("<td>").text(load.Weight))
                     .append($("<td>").text(load.Rate))
-                    .append($("<td id='info'>").append("<button class='btn btn-info'>+</button>"))
+
                     .append($("<td>").append($("<p class='Status'>").text(status).addClass("label").addClass(statusClass)))
                     .append($("<td>").append($("<p class='Status'>").text(load.DriverStatus).addClass("label").addClass(statusClass)))
-
+                    .append($("<td id='info'>").append("<button class='btn btn-info'>+</button>"))
 
                 var $childRow = $('<tr class="child">')
                 $childRow.append($('<td colspan="1">').text(load.Rate)).hide()
@@ -156,10 +165,14 @@ $(document).ready(function() {
         $.post("/api/loads/assignloads", {
              UserId: $("#user-select").val(),
              LoadId:$("#load-select").val()
-        }).done(data=>{
+        }).then(data=>{
             console.log(data);
             $("#assign-load-form").trigger("reset");
             successPost()
+        }).catch(function(err) {
+          console.log(err);
+          failPost();
+
         });
     });
 
@@ -188,7 +201,7 @@ $(document).ready(function() {
 
 
   // update and edit load info
-  
+
     $("#user-change").submit(event=>{
         event.preventDefault();
         if(!$("#userToChange").val()) return;

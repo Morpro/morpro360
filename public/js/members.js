@@ -61,47 +61,43 @@ $(document).ready(function() {
             console.log("got all loads",loads)
             loads.forEach(load =>{
                 var $format= $("<div class='contact row'>"
-                    +"<div class='col-sm-3'>"
-                      +"<h3> Load info </h3>"
-                       
-                         +"<div class='row'>load number:"+load.name+"</div>"
-                         +"<div class='row'>Product:"+ load.product + "</div>"
-                         +"<div class='row'>Miles:"+ load.Rate+ "</div>"
-                       
-                    +"</div>"
+                +"<div class='col-sm-3' style='margin-top:24px;'>"
+                +"<div class=''>"
+
+                     +"<div class='row'>" +  "<h4 class='fa fa-info-circle fa-2x' aria-hidden='true' style='font-size: 20px;'> Origin </h4>"+ "</div>"
+                     +"<div class='row'>" + load.DropOffAdress +"</div>"
+                     +"<div class='row'>"+ load.PickUpCity + ", "+ load.PickUpState + " " + load.PickUpZip +  "</div>"
+
+                +"</div>"
+                +"</div>"
                   //pick up address
-                    +"<div class='col-sm-3'>"
+                    +"<div class='col-sm-3' style='margin-top:24px;'>"
                     +"<div class=''>"
 
-                         +"<div class='row'>"+"<h4>Origin</h4>"+"</div>"
-                         +"<div class='row'>Adress:"+load.PickUpAdress+"</div>"
-                         +"<div class='row'>Product:"+ load.PickUpCity + "</div>"
-                         +"<div class='row'>Miles:"+ load.PickUpZip+ "</div>"
-                         +"<div class='row'>state:"+ load.PickUpState + "</div>"
-    
-                    +"</div>"   
+                         +"<div class='row'>" +  "<h4 class='fa fa-location-arrow fa-2x' aria-hidden='true' style='font-size: 20px;'> Origin </h4>"+ "</div>"
+                         +"<div class='row'>" + load.DropOffAdress +"</div>"
+                         +"<div class='row'>"+ load.PickUpCity + ", "+ load.PickUpState + " " + load.PickUpZip +  "</div>"
+
+                    +"</div>"
                     +"</div>"
                   // drop off address
-                    +"<div class='col-sm-3'>"
-                      +"<h3>Destination</h3>"
-                       
-                         +"<div class='row'>Adress:"+load.DropOffAdress+"</div>"
-                         +"<div class='row'>Product:"+load.DropOffCity + "</div>"
-                         +"<div class='row'>Miles:"+ load.DropOffZip+ "</div>"
-                         +"<div class='row'>state:"+ load.DropOffState + "</div>"
-    
-                       
-                    +"</div>"
+                  +"<div class='col-sm-3' style='margin-top:24px;'>"
+                  +"<div class=''>"
+                       +"<div class='row'>" +  "<h4 class='fa fa-map-marker fa-2x' aria-hidden='true' style='font-size: 20px;'> Destination </h4>"+ "</div>"
+                       +"<div class='row'>" + load.DropOffAdress +"</div>"
+                       +"<div class='row'>"+ load.DropOffCity + ", "+ load.DropOffState + " " + load.DropOffZip +  "</div>"
+
+                  +"</div>"
+                  +"</div>"
                     // contact
-                    +"<div class='col-sm-3'>"
-                      +"<h3>contact</h3>"
-                       
-                         +"<div class='row'>Adress:"+load.DropOffAdress+"</div>"
-                         +"<div class='row'>Product:"+load.DropOffCity + "</div>"
-                         +"<div class='row'>Miles:"+ load.DropOffZip+ "</div>"
-                         +"<div class='row'>state:"+ load.DropOffState + "</div>"
-    
-                       
+                    +"<div class='col-sm-3' style='margin-top:24px;'>"
+                    +"<div class=''>"
+                         +"<div class='row'>" + "<h4 class='fa fa-address-card-o fa-2x' aria-hidden='true' style='font-size: 20px;'> Contact </h4>"+ "</div>"
+                         +"<div class='row'>"+load.PickUp +"</div>"
+                         +"<div class='row'>"+ "Email: " + load.Dropoff +"</div>"
+                         +"<div class='row'>"+"Phone: "+ load.Phone +"</div>"
+
+                    +"</div>"
                     +"</div>"
 
                  +"</div>");
@@ -109,14 +105,14 @@ $(document).ready(function() {
                 $entryRow.append($("<td>").text(load.name))
                     .append($("<td>").text(load.Company))
                     .append($("<td>").text(load.LoadNumber))
-                    .append($("<td>").text(load.PickUp))
-                    .append($("<td>").text(load.Dropoff))
+                    .append($("<td>").text(load.PickUpCity+", "+" "+load.PickUpState.toUpperCase()))
+                    .append($("<td>").text(load.DropOffCity+", "+" "+load.DropOffState.toUpperCase()))
                     .append($("<td>").text(load.Weight))
                     .append($("<td>").text(load.Rate))
                     .append($("<td>").append("<button class='btn btn-info'>+</button>"))
                 var $childRow = $('<tr class="child">')
                 $childRow.append($('<td colspan="12">').append($($format))).hide()
-                         
+
 
 
 

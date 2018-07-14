@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
     "Weight": DataTypes.STRING,
     "Rate": DataTypes.INTEGER,
     "DriverStatus": DataTypes.STRING,
-    
+
     "product": DataTypes.STRING,
     "PickUpAdress" : DataTypes.STRING,
     "PickUpCity":DataTypes.STRING,
@@ -21,6 +21,7 @@ module.exports = function(sequelize, DataTypes) {
     "DropOffZip":DataTypes.STRING,
     "DropOffState":DataTypes.STRING,
     "PickUpNumber":DataTypes.STRING,
+    "Phone":DataTypes.STRING,
 
 
     "Status": {

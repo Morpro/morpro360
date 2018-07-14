@@ -15,12 +15,87 @@
 /********************
  * GENERAL STYLES
  ********************/
+ #THstatus{
+   width:50px;
+ }
+
+ #THdriverstat{
+    width: 125px;
+    padding-left: 8px;
+ }
+
+ #accordion  i{
+   margin-left: 15px;
+   margin-right: 15px;
+ }
+
+#accordion a :focus{
+  color: white;
+
+}
+
+ #collapse4{
+   width: 600px;
+ }
 /*  media query */
 
+#create-load-form{
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+/* assing load to user */
+#load-select{
+  margin-left: 38px;
+  margin-right: 38px;
+  margin-bottom: 13px;
+  width: 280px;
+  height: 48px;
+}
 
+#user-select{
+  margin-left: 38px;
+  margin-right: 38px;
+  margin-bottom: 13px;
+  width: 280px;
+  height: 48px;
+}
 
+#assign-load-form input{
+    width: 282px;
+    margin-left: 37px;
+    margin-bottom: 22px;
+    margin-right: 37px;
+    height: 44px;
+}
+/* end of assign load user */
 
 /* Manage contract css */
+#status{
+  margin-left: 38px;
+  margin-right: 38px;
+  margin-bottom: 13px;
+  width: 280px;
+  height: 48px;
+}
+
+#loadId{
+  margin-left: 38px;
+  margin-right: 38px;
+  margin-bottom: 13px;
+  width: 280px;
+  height: 48px;
+}
+
+
+#loadStatus input{
+    width: 282px;
+    margin-left: 37px;
+    margin-bottom: 22px;
+    margin-right: 37px;
+    height: 44px;
+}
+
+/* end of  update load status */
 
 .panel-title{
 color: white;

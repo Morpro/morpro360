@@ -1,6 +1,14 @@
 $(document).ready(function() {
 
 
+function totalincome (callback) {
+	var totalin = $("#grosssales").text();
+	console.log(totalin);
+
+}
+
+
+totalincome ();
 
 	 $.get("/api/currentuserid")
     .then(id=>{
@@ -18,15 +26,62 @@ $(document).ready(function() {
         });
 
 
-      $.get("/api/users/"+id+"/loads")
+// gets users total gross income
+				$.get("/api/users/"+ id + "/loads")
 				.then(loads=>{
-					var allLoads = [];
-					loads.forEach(load=>{
-							allLoads.push(loads)
-							console.log("here are the users load", loads.last())
-							})
+						console.log(loads);
+						var total = [];
+						loads.forEach(load=>{
+								total.push(load.Rate)
+								console.log("totalcon", total)
+								})
+					 var sum = total.reduce((x, y) => x + y);
+					 var savings = (sum *  0.30)
+					 console.log("here is the sum:",sum);
+					 $("#gross").text("$"+sum.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,"))
+					  $("#grosssales").text("$"+sum.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,"))
+					 $("#savings").text("$"+savings.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") );
 
-				})
+
+           console.log("savinf",savings)
+						})
+
+
+
+						// gets users expense
+						$.get("api/expense")
+										.then(loads=>{
+												console.log(loads);
+												var extotal = [];
+												loads.forEach(load=>{extotal.push(load.expenseAmount)})
+												var sum1 = extotal.reduce((x, y) => x + y);
+		                    console.log("here is the sum expense :", sum1);
+		                    $("#MonthlyEx").text("$"+sum1.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,"))
+
+
+						})
+
+
+
+
+
+
+// gets all user loads and counts them
+				$.get("/api/users/"+id+"/loads")
+					.then(loads=>{
+						var allLoads = [];
+						loads.forEach(load=>{
+								allLoads.push(loads)
+								console.log("all user completed loads", loads.length)
+								})
+
+						  $("#completedLoads").text(allLoads.length)
+
+							// console.log("her is user completed", allLoads.length)
+
+					})
+
+
 
 
 

@@ -68,10 +68,9 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/img/user.png" class="img-circle" alt="Avatar"> <span id="username">User Name</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
               <ul class="dropdown-menu">
-                <li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
-                <li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
-                <li><a href="#"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
-                <li><a href="#"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
+                <li><a href="page-profile.html"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
+                <li><a href="page-profile.html"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
+                <li><a href="/api/logout"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
               </ul>
             </li>
             <!-- <li>
@@ -88,38 +87,38 @@
         <nav>
           <ul class="nav">
             <li><a href="/dashboard" class=""><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-            <li><a href="/members" class="active"><i class="lnr lnr-code"></i> <span>Load Board</span></a></li>
-            <li><a href="/quote" class=""><i class="lnr lnr-chart-bars"></i> <span>Get a quote</span></a></li>
+            <li><a href="/members" class="active"><i class="lnr lnr-bus"></i> <span>Load Board</span></a></li>
             <li>
-              <a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Manage Load</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+              <a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-add"></i> <span>Manage Load</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
               <div id="subPages" class="collapse ">
                 <ul class="nav">
                   <li><a href="Manage-Load.html" class="">Create a New Contract</a></li>
                   <li><a href="Manage-Contract.html" class="">Manage Contract</a></li>
-                  <li><a href="page-lockscreen.html" class="">Assign Contract</a></li>
+
                 </ul>
               </div>
             </li>
             <li>
-              <a href="#subPages2" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Accounting</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+              <a href="#subPages2" data-toggle="collapse" class="collapsed"><i class="lnr lnr-chart-bars"></i> <span>Accounting</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
               <div id="subPages2" class="collapse ">
                 <ul class="nav">
                   <li><a href="payroll.html" class="">Load Payments</a></li>
-                  <li><a href="page-login.html" class="">Expenses</a></li>
-                  <li><a href="page-lockscreen.html" class="">Invoice Generator (beta)</a></li>
+                  <li><a href="expenses.html" class="">Expenses</a></li>
+
                 </ul>
               </div>
             </li>
+              <li><a href="/cms.html" class=""><i class="lnr lnr-users"></i> <span>Customers</span></a></li>
+
             <li>
-              <a href="#subPages3" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Tools</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+              <a href="#subPages3" data-toggle="collapse" class="collapsed"><i class="lnr lnr-diamond"></i> <span>Tools</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
               <div id="subPages3" class="collapse ">
                 <ul class="nav">
-                  <li><a href="page-profile.html" class="">Maps</a></li>
-                  <li><a href="page-login.html" class="">Create Invoice</a></li>
-                  <li><a href="page-lockscreen.html" class="">Lockscreen</a></li>
+                  <li><a href="map.html" class="">Maps</a></li>
                 </ul>
               </div>
             </li>
+            <li><a href="/page-profile.html" class=""><i class="lnr lnr-cog"></i> <span>Profile</span></a></li>
           </ul>
         </nav>
       </div>
@@ -134,6 +133,7 @@
                   <h3 class="panel-title">Open Load Board</h3>
                 </div>
                 <div class="panel-body">
+                  <h3> Create a New Contract</h3>
                   <form class="" id="create-load-form">
                     <div style="display: none" id="alert" class="alert alert-success" role="alert">
                       <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
@@ -160,83 +160,105 @@
                             <br>
                         </div>
                         <div class="row">
-                            <div class="col-lg-3 form-group">
-                                <label for="loadPickUp">Pick Up</label>
-                                <br>
-                                <input type="text" class="form-control" id="loadPickUp">
-                            </div>
-
-                            <div class="col-lg-3 form-group">
-                                <label for="loadDropOff">Drop Off</label>
-                                <br>
-                                <input type="text" class="form-control" id="loadDropOff">
-                            </div>
-
-                            <div class="col-lg-3 form-group">
+                            <div class="col-lg-4 form-group">
                                 <label for="loadWeight">Weight</label>
                                 <br>
                                 <input type="text" class="form-control" id="loadWeight">
                             </div>
 
-                            <div class="col-lg-3 form-group">
-                                <label for="loadRate">Rate</label>
-                                <br>
-                                <input class="form-control" type="text" id="loadRate">
-                           </div>
 
-                           <!-- here is all the loads info -->
-
-                           <div class="col-lg-3 form-group">
+                           <div class="col-lg-4 form-group">
                                 <label for="product">product</label>
                                 <br>
                                 <input class="form-control" type="text" id="product">
                            </div>
-                           <div class="col-lg-3 form-group">
-                                <label for="PickUpAdress">PickUpAdress</label>
-                                <br>
-                                <input class="form-control" type="text" id="PickUpAdress">
-                           </div>
-                           <div class="col-lg-3 form-group">
-                                <label for="PickUpCity">PickUpCity</label>
-                                <br>
-                                <input class="form-control" type="text" id="PickUpCity">
-                           </div>
-                           <div class="col-lg-3 form-group">
-                                <label for="PickUpZip">PickUpZip</label>
-                                <br>
-                                <input class="form-control" type="text" id="PickUpZip">
-                           </div>
-                           <div class="col-lg-3 form-group">
-                                <label for="PickUpState">PickUpState</label>
-                                <br>
-                                <input class="form-control" type="text" id="PickUpState">
-                           </div>
-                           <div class="col-lg-3 form-group">
-                                <label for="DropOffAdress">DropOffAdress</label>
-                                <br>
-                                <input class="form-control" type="text" id="DropOffAdress">
-                           </div>
-                           <div class="col-lg-3 form-group">
-                                <label for="DropOffCity">DropOffCity</label>
-                                <br>
-                                <input class="form-control" type="text" id="DropOffCity">
-                           </div>
-                           <div class="col-lg-3 form-group">
-                                <label for="DropOffZip">DropOffZip</label>
-                                <br>
-                                <input class="form-control" type="text" id="DropOffZip">
-                           </div>
-                           <div class="col-lg-3 form-group">
-                                <label for="DropOffState">DropOffState</label>
-                                <br>
-                                <input class="form-control" type="text" id="DropOffState">
-                           </div>
-                           <div class="col-lg-3 form-group">
+                           <div class="col-lg-4 form-group">
                                 <label for="PickUpNumber">PickUpNumber</label>
                                 <br>
                                 <input class="form-control" type="text" id="PickUpNumber">
                            </div>
+                       </div>
+
+
+
+
+                           <!-- here is all the loads info -->
+
+                     <div class="row">
+                           <div class="col-lg-3 form-group">
+                                <label for="PickUpAdress">Adress</label>
+                                <br>
+                                <input class="form-control" type="text" id="PickUpAdress">
+                           </div>
+                           <div class="col-lg-3 form-group">
+                                <label for="PickUpCity">City</label>
+                                <br>
+                                <input class="form-control" type="text" id="PickUpCity">
+                           </div>
+                           <div class="col-lg-3 form-group">
+                                <label for="PickUpZip">Zip-Code</label>
+                                <br>
+                                <input class="form-control" type="text" id="PickUpZip">
+                           </div>
+                           <div class="col-lg-3 form-group">
+                                <label for="PickUpState">State</label>
+                                <br>
+                                <input class="form-control" type="text" id="PickUpState">
+                           </div>
+                     </div>
+
+
+                    <div class="row"><h4> Contract Details</h4></div>
+                    <br>
+
+                     <div class="row">
+                           <div class="col-lg-3 form-group">
+                                <label for="DropOffAdress">Drop-Off Address</label>
+                                <br>
+                                <input class="form-control" type="text" id="DropOffAdress">
+                           </div>
+                           <div class="col-lg-3 form-group">
+                                <label for="DropOffCity">Drop-Off City</label>
+                                <br>
+                                <input class="form-control" type="text" id="DropOffCity">
+                           </div>
+                           <div class="col-lg-3 form-group">
+                                <label for="DropOffZip">Drop-Off Zipcode</label>
+                                <br>
+                                <input class="form-control" type="text" id="DropOffZip">
+                           </div>
+                           <div class="col-lg-3 form-group">
+                                <label for="DropOffState">Drop Off State</label>
+                                <br>
+                                <input class="form-control" type="text" id="DropOffState">
+                           </div>
+                      </div>
+                      <div class="row">
+                           <div class="col-lg-3 form-group">
+                               <label for="loadPickUp">Contact Name</label>
+                               <br>
+                               <input type="text" class="form-control" id="loadPickUp">
+                           </div>
+
+
+                               <div class="col-lg-3 form-group">
+                                   <label for="loadDropOff">Email</label>
+                                   <br>
+                                   <input type="email" class="form-control" id="loadDropOff">
+                               </div>
+                               <div class="col-lg-3 form-group">
+                                   <label for="loadRate">Phone</label>
+                                   <br>
+                                   <input class="form-control" type="text" id="Phone">
+                              </div>
+
+                               <div class="col-lg-3 form-group">
+                                   <label for="loadRate">Rate</label>
+                                   <br>
+                                   <input class="form-control" type="text" id="loadRate">
+                              </div>
                         </div>
+                      </div>
                         <input style="float: right" class="btn btn-primary" type="submit" id="ceate-load-submit">
                  </form>
 
