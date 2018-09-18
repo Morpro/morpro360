@@ -42,6 +42,10 @@ module.exports = function(app) {
         res.sendFile(path.join(__dirname, "../public/mapex.html"));
     });
 
+    app.get("/Sheets", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public/test/sheets.html"));
+    });
+
     app.get("/dashboard", isAuthenticated, function(req, res) {
         res.sendFile(path.join(__dirname, "../public/dashboard.html"));
     });
