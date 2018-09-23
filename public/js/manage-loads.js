@@ -1,3 +1,12 @@
+
+// _  _  __   __   __   __   __
+// |\/| /  \ |__) |__) |__) /  \
+// |  | \__/ |  \ |    |  \ \__/
+//
+// MorPro W-P Framework v2.0.1| Yamil Morales
+// MorPro Media, LLC © 2013-2018
+// Built in Florida All Rights Reserved.
+
 $(document).ready(function(){
     function loadUserOptions(callback) {
         $.get("/api/users", users=>{
