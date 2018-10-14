@@ -70,6 +70,9 @@ module.exports = function(app) {
     app.get("/groups", function(req, res) {
         res.sendFile(path.join(__dirname, "../public/groupApiTest.html"));
     });
+    app.get("/table", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public/testtable.html"));
+    });
 
     app.get("/tasks", function(req, res) {
         res.sendFile(path.join(__dirname, "../public/taskApiTest.html"));
