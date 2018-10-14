@@ -57,7 +57,7 @@ $(document).ready(function() {
             $("#Total").val(Rate);
             $('#Company').val(Company);
             $('#invoiceNum').val(invoiceNum);
-            $('#Date').val();
+            $('#Date').val(Day);
             $('#LoadNumber').val(Load);
             $('#PickUp').val(PickUp);
             $('#DropOff').val(DropOff);

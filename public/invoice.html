@@ -137,33 +137,103 @@
                       <h3 class="panel-title">Open Load Board</h3>
                     </div>
                 <div class="panel-body">
-                  <form class="" id="create-invoice-form">
+                  <form class="container" id="create-invoice-form">
                     <div style="display: none" id="alert" class="alert alert-success" role="alert">
                       <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
                       <span class="msg">Loaded was successfully posted!</span>
                     </div>
-                             <select id="selectLoad"></select><br>
-                             <input type="text" id="Company" value="" placeholder="Company"><br>
-                             <input type="text" id="invoiceNum" value="" placeholder="invoice Number" /><br>
-                             <input type="text" id="Date" value="" placeholder="Date" /><br>
-                             <input type="text" id="LoadNumber" value="" placeholder="Load Number"/><br>
-                             <input type="text" id="PickUp" value="" placeholder="Pick Up"/><br>
+
+
+
+                    <select class="col-sm-12" id="selectLoad" class="dropdown-menu" aria-labelledby="dropdownMenu3"></select><br>
+
+
+                  <div class="row">
+                      <div class= "col-sm-3 morInput morInput">
+                            <span class="input-group-addon" id="basic-addon1">Company</span>
+                            <input type="text" class="form-control" placeholder="Company " aria-describedby="basic-addon1"  id="Company" value="">
+                      </div>
+
+                      <div class= "col-sm-3 morInput">
+                          <span class="input-group-addon" id="basic-addon1">Invoice No.</span>
+                          <input type="text" class="form-control"  aria-describedby="basic-addon1"  id="invoiceNum" value="" placeholder="invoice Number">
+                     </div>
+
+                     <div class="col-sm-3 morInput">
+                         <span class="input-group-addon" id="basic-addon1">Date</span>
+                         <input type="text" class="form-control"  aria-describedby="basic-addon1"  id="Date" value="" placeholder="Date">
+                     </div>
+                     <div class="col-sm-3 morInput">
+                         <span class="input-group-addon" id="basic-addon1">Load Number</span>
+                         <input type="text" class="form-control"  aria-describedby="basic-addon1"  id="LoadNumber" value="" placeholder="Date">
+                     </div>
+
+                  </div>
+
+
+                  <div class="row">
+                      <div class= "col-sm-3 morInput">
+                            <span class="input-group-addon" id="basic-addon1">PickUp</span>
+                            <input type="text" class="form-control" placeholder="Company " aria-describedby="basic-addon1"  id="PickUp" value="">
+                      </div>
+
+                      <div class= "col-sm-3 morInput">
+                          <span class="input-group-addon" id="basic-addon1">Drop Off</span>
+                          <input type="text" class="form-control"  aria-describedby="basic-addon1"  id="DropOff" value="" placeholder="Drop Off">
+                     </div>
+
+                     <div class="col-sm-3 morInput">
+                         <span class="input-group-addon" id="basic-addon1">Weight</span>
+                         <input type="text" class="form-control"  aria-describedby="basic-addon1"  id="Weight" value="" placeholder="Weight">
+                     </div>
+                     <div class="col-sm-3 morInput">
+                         <span class="input-group-addon" id="basic-addon1">Product</span>
+                         <input type="text" class="form-control"  aria-describedby="basic-addon1"  id="product" value="" placeholder="product">
+                     </div>
+                  </div>
+
+                  <div class="row">
+                      <div class= "col-sm-3 morInput">
+                            <span class="input-group-addon" id="basic-addon1">Pieces</span>
+                            <input type="text" class="form-control" placeholder="Pieces " aria-describedby="basic-addon1"  id="Pieces" value="">
+                      </div>
+
+                      <div class= "col-sm-3 morInput">
+                          <span class="input-group-addon" id="basic-addon1">Total</span>
+                          <input type="text" class="form-control"  aria-describedby="basic-addon1"  id="Total" value="" placeholder="Drop Off">
+                     </div>
+
+                     <div class="col-sm-6 morInput">
+                         <span class="input-group-addon" id="basic-addon1">Notes</span>
+                         <input type="text" class="form-control"  aria-describedby="basic-addon1"  id="Notes" value="" placeholder="Weight">
+                     </div>
+                  </div>
+
+
+                      <!-- This is the example code for invoice -->
+                             <!-- <select id="selectLoad"></select><br> -->
+                             <!-- <input type="text" aria-label="Large" aria-describedby="inputGroup-sizing-default" id="Company" value="" placeholder="Company" />
+                             <input type="text" aria-label="Large" aria-describedby="inputGroup-sizing-default" id="invoiceNum" value="" placeholder="invoice Number" />
+                             <input type="text" aria-label="Large" aria-describedby="inputGroup-sizing-default" id="Date" value="" placeholder="Date" /> -->
+
+                             <!-- <input type="text" id="LoadNumber" value="" placeholder="Load Number"/><br> -->
+                             <!-- <input type="text" id="PickUp" value="" placeholder="Pick Up"/><br>
                              <input type="text" id="DropOff" value="" placeholder="Drop Off"/><br>
-                             <input type="text" id="Weight" value="" placeholder="Weight"/><br>
-                             <input type="text" id="product" value="" placeholder="product"/><br>
-                             <input type="text" id="Pieces" value="" placeholder="Pallets/Pieces"/><br>
+                             <input type="text" id="Weight" value="" placeholder="Weight"/><br> -->
+                             <!-- <input type="text" id="product" value="" placeholder="product"/><br> -->
+                             <!-- <input type="text" id="Pieces" value="" placeholder="Pallets/Pieces"/><br>
                              <input type="text" id="Total" value="" placeholder="Total"/><br>
                              <input type="text" id="Lumper" value="" placeholder="lumper"/><br>
                              <input type="text" id="Detention" value="" placeholder="Detention"/><br>
-                             <input type="text" id="Notes" value="" placeholder="Notes"/><br>
-                        <div class="row"></div>
+                             <input type="text" id="Notes" value="" placeholder="Notes"/><br> -->
+
                          <input type="button" id="button" value="Submit"/>
               </form>
 
                 </div>
             </div>
       </div>
-  </div> 
+  </div>
       <!-- END MAIN CONTENT -->
 </div>
     <!-- END MAIN -->
